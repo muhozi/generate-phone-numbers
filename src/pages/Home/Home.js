@@ -1,14 +1,35 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
+import generateNumbers from '../../utils';
+import Layout from '../../components/Layout';
 import './home.scss';
 
-function App() {
+const Home = () => {
+  const phoneNumbers = generateNumbers();
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Phone number generator</h1>
-      </header>
-    </div>
+    <Layout>
+      <div className="app-body">
+        <table className="phoneNumbers">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Phone number</th>
+              <th>Length</th>
+            </tr>
+          </thead>
+          <tbody>
+            {phoneNumbers.map((phone, key) => (
+              <tr key={key}>
+                <td>{key + 1}</td>
+                <td>{phone}</td>
+                <td>{phone.length}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Layout>
   );
-}
+};
 
-export default App;
+export default Home;
