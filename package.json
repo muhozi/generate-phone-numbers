@@ -8,12 +8,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write 'src/**/*.js'",
+    "test:cov": "yarn test --watchAll=false --coverage ./src"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --write 'src/**/*.js' && CI=true yarn test --no-watch --coverage ./src",
-      "pre-push": "CI=true yarn test"
+      "pre-commit": "yarn format && yarn test:cov"
     }
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "husky": "^2.3.0",
     "node-sass": "^4.12.0",

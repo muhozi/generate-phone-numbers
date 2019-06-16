@@ -5,6 +5,12 @@
     "jest": true
   },
   "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "parser": "babel-eslint",
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -15,9 +21,5 @@
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
-  },
-  "plugins": ["react"],
-  "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
